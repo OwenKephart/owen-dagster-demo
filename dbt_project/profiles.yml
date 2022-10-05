@@ -1,5 +1,5 @@
 my_dbt_project:
-  target: local
+  target: prod
   outputs:
     local:
       type: duckdb
@@ -9,11 +9,10 @@ my_dbt_project:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
 
-      # User/password auth
       user: "{{ env_var('SNOWFLAKE_USER') }}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
 
-      database: DEV_OWEN
-      schema: PUBLIC
+      database: SANDBOX
+      schema: OWEN
       warehouse: ELEMENTL
       client_session_keep_alive: False
