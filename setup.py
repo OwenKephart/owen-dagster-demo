@@ -7,6 +7,7 @@ if __name__ == "__main__":
         package_data={"assets_dbt_python": ["dbt_project/*"]},
         install_requires=[
             "dagster",
+            "dagit",
             "dagster-dbt",
             "dagster-snowflake",
             "dagster-snowflake-pandas",

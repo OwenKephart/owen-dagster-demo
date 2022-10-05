@@ -1,4 +1,4 @@
-my_dbt_project:
+dbt_project:
   target: prod
   outputs:
     local:
@@ -14,5 +14,5 @@ my_dbt_project:
 
       database: SANDBOX
       schema: OWEN
-      warehouse: ELEMENTL
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
       client_session_keep_alive: False

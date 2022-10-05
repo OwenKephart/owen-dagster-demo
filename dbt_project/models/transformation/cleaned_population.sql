@@ -1,0 +1,1 @@
+select * from {{ source("owen", "continent_population") }}
