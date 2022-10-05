@@ -1,17 +1,17 @@
 import pandas as pd
-from dagster import asset, DailyPartitionsDefinition
+from dagster import asset, DailyPartitionsDefinition, AssetIn
 
 
 daily_partitions = DailyPartitionsDefinition(start_date="2022-06-01")
 
 
-@asset(compute_kind="feature_tool")
-def weekly_feature(weekly_pop_rollup) -> None:
+@asset(compute_kind="feature_tool", ins={"weekly_pop_rollup": AssetIn(key_prefix="owen")})
+def weekly_feature(weekly_pop_rollup: pd.DataFrame) -> None:
     """A feature for our model"""
     pass
 
 
-@asset(compute_kind="feature_tool")
+@asset(compute_kind="feature_tool", ins={"population_summary": AssetIn(key_prefix="owen")})
 def summary_feature(population_summary) -> None:
     """A feature for our model"""
     pass
