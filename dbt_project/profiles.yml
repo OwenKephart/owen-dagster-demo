@@ -1,0 +1,19 @@
+my_dbt_project:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: example.duckdb
+      schema: dbt_schema
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+
+      # User/password auth
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      database: DEV_OWEN
+      schema: PUBLIC
+      warehouse: ELEMENTL
+      client_session_keep_alive: False
