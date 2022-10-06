@@ -14,4 +14,4 @@ from assets_dbt_python.assets import population, forecasting
 
 @repository
 def my_repository():
-    []
+    return []
