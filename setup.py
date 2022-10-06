@@ -14,6 +14,7 @@ if __name__ == "__main__":
             "pandas",
             "numpy",
             "scipy",
+            "lxml",
             "dbt-core",
             "dbt-snowflake",
         ],
